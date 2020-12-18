@@ -9,7 +9,7 @@ pip3 install -r requirements.txt
 
 ## run
 ```sh
-./client.py & ./client.py & ./client.py &
-./__init__.py
+./worker.py & ./worker.py & ./worker.py &
+./rabbit_distr.py
 kill $(jobs -p)
 ```

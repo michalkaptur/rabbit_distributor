@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pika
 import uuid
 
@@ -29,8 +31,11 @@ class RpcRunner:
             self.connection.process_data_events()
         return self.response
 
-def go():
+def main():
     request = "foo"
     log("sending request: {}".format(request))
     result = RpcRunner().call(request)
     log("got response: [{}]".format(result.decode()))
+
+if __name__ == "__main__":
+    main()
