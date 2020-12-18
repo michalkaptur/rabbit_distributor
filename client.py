@@ -2,12 +2,15 @@
 
 import pika
 from random import randrange
-from sys import exit, stderr
+
+def die_randomly():
+    from sys import exit, stderr
+    if randrange(10) < 2:
+        stderr.write("decided to die randomy :(\n")
+        exit(1)
 
 def callback(ch, method, properties, body):
-    if randrange(10) < 2:
-        stderr.write("decided to die")
-        exit(1)
+    die_randomly()
     print(" [x] Received %r" % body)
     ch.basic_ack(delivery_tag = method.delivery_tag)
 
