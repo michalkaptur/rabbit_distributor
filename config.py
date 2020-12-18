@@ -1,0 +1,1 @@
+QUEUE_NAME = 'best_queue_ever'

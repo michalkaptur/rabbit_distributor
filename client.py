@@ -2,6 +2,7 @@
 
 import pika
 from random import randrange
+import config
 
 def die_randomly():
     from sys import exit, stderr
@@ -19,11 +20,10 @@ def callback(ch, method, properties, body):
 
 
 def main():
-    QUEUE_NAME = 'best_queue_ever'
     connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
     channel = connection.channel()
-    channel.queue_declare(queue=QUEUE_NAME)
-    channel.basic_consume(queue=QUEUE_NAME, on_message_callback=callback)
+    channel.queue_declare(queue=config.QUEUE_NAME)
+    channel.basic_consume(queue=config.QUEUE_NAME, on_message_callback=callback)
     channel.start_consuming()
 
 

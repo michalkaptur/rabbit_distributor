@@ -1,6 +1,8 @@
 import pika
 import uuid
 
+import config
+
 class RpcRunner:
     def __init__(self):
         self.connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
@@ -19,7 +21,7 @@ class RpcRunner:
     def call(self, value):
         self.corr_id = str(uuid.uuid4())
         props = pika.BasicProperties(reply_to=self.callback_queue,correlation_id=self.corr_id)
-        self.channel.basic_publish(exchange='', routing_key='best_queue_ever', body=str(value), properties=props)
+        self.channel.basic_publish(exchange='', routing_key=config.QUEUE_NAME, body=str(value), properties=props)
         while not self.response:
             self.connection.process_data_events()
         return self.response
