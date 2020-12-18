@@ -15,6 +15,13 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
+## dev
+
+```sh
+pip3 install -r requirements-dev.txt
+pytest
+```
+
 ## run
 ```sh
 ./worker.py & ./worker.py & ./worker.py &
