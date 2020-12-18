@@ -1,3 +1,11 @@
+## what's this all about
+sandbox project, just to:
+- [x] get a grasp about RabbitMQ
+- [ ] try pseudo-multi-host (docker-compose) setup on CircleCI
+- [ ] create a gist of basic pytest framework for component tests
+- [ ] develop a simplistic algorithm implementation, which scales horizontally (stateless workers)
+- [ ] get those python UTs running on CircleCI
+
 ## setup
 
 ```sh
