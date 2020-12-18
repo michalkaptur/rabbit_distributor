@@ -6,7 +6,7 @@ from random import randrange
 def die_randomly():
     from sys import exit, stderr
     if randrange(10) < 2:
-        stderr.write("decided to die randomy :(\n")
+        stderr.write("decided to die randomly :(\n")
         exit(1)
 
 def callback(ch, method, properties, body):
