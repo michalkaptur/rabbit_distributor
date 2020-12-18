@@ -27,5 +27,7 @@ class RpcRunner:
         return self.response
 
 def go():
-    result = RpcRunner().call("foo")
-    print("got response: {}".format(result.decode()))
+    request = "foo"
+    print("sending request: {}".format(request))
+    result = RpcRunner().call(request)
+    print("got response: [{}]".format(result.decode()))
