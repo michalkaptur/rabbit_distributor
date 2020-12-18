@@ -3,6 +3,9 @@ import uuid
 
 import config
 
+def log(string):
+    print('[runner] {}'.format(string))
+
 class RpcRunner:
     def __init__(self):
         self.connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
@@ -28,6 +31,6 @@ class RpcRunner:
 
 def go():
     request = "foo"
-    print("sending request: {}".format(request))
+    log("sending request: {}".format(request))
     result = RpcRunner().call(request)
-    print("got response: [{}]".format(result.decode()))
+    log("got response: [{}]".format(result.decode()))

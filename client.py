@@ -4,6 +4,9 @@ import pika
 from random import randrange
 import config
 
+def log(string):
+    print('[worker] {}'.format(string))
+
 def die_randomly():
     from sys import exit, stderr
     if randrange(10) < 2:
@@ -12,7 +15,7 @@ def die_randomly():
 
 def callback(ch, method, properties, body):
     die_randomly()
-    print(" [x] Received %r" % body)
+    log("received %r" % body)
     ch.basic_publish(exchange='',routing_key=properties.reply_to,
                      properties=pika.BasicProperties(correlation_id = properties.correlation_id),
                      body=str(body)+' and some magic dust')
