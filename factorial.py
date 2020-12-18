@@ -12,5 +12,5 @@ def partial_factorial_sets(n, sets):
     set_capacity = ceil_div(n, sets)
     result = []
     for i in range(0, sets):
-        result.append((i*set_capacity, (i+1)*set_capacity))
+        result.append((i*set_capacity+1, (i+1)*set_capacity))
     return result
